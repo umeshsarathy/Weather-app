@@ -145,12 +145,13 @@ async function handleSubmit(){
   try{
     input = document.getElementById("input");
   const city = input.value
+    console.log(city)
   const coords = await getCoordinatesFromCity(city)
   const cityname = await getcityfromcoords(coords.lat, coords.lng);
     
     console.log(cityname.city);
     // document.getElementById("city-value").innerText = city.replace(/^./, char => char.toUpperCase());
-    document.getElementById("city-value").innerText = cityname.city.replace(/^./, c => c.toUpperCase());
+    document.getElementById("city-value").innerText = city.replace(/^./, c => c.toUpperCase());
     document.getElementById("state-name").innerText = ", " + cityname.state;
     document.getElementById("search-updates").innerText = "Weather Details Updated"
     fetchfromapi(coords.lat,coords.lng)
@@ -162,3 +163,4 @@ async function handleSubmit(){
   
 
 }
+
